@@ -228,7 +228,7 @@ Link_t * insert (Link_t * beginning, Link_t * new_link)
 
   if (beginning == NULL ||  strcmp(lastname, beginning->student.lastname) <= 0)
   {
-    list_after_insertion = chain(beginning, new_link);
+    return chain(beginning, new_link);
   }
   else
   {
@@ -250,10 +250,12 @@ Link_t * insert (Link_t * beginning, Link_t * new_link)
 ********************************************************/
 Link_t * sort (Link_t * beginning)
 {
-  Link_t * sorted_list = NULL;
+  Link_t * sorted_list = (Link_t * )malloc(sizeof(Link_t));
 
+  printf("Youon");
   Link_t * iter = beginning;
   Link_t * new;
+
   while (iter != NULL)
   {
     new = iter;
@@ -270,8 +272,14 @@ Link_t * sort (Link_t * beginning)
 ********************************************************/
 void free_list(Link_t * list){
 
-  /* TODO: implement this function */
-  printf("free_list: Not Implemented Yet\n");
-  exit(-1);
+  Link_t * iter = list;
+  Link_t * current;
+
+  while (iter != NULL)
+  {
+    current = iter;
+    iter = iter->next;
+    free(current);
+  }
 
 }

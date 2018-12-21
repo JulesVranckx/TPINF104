@@ -89,13 +89,7 @@ int my_strcmp(char * str1, char * str2)
   }
     return 0;
 }
-void swap(char ** tab, int k)
-{
-  char * str = tab[k];
-  char * str2 = tab[k-1];
-  tab[k] = str2;
-  tab[k-1] = str;
-}
+
 
 void sort_string_array(char ** tab, int nb_of_elements)
 {
@@ -103,7 +97,9 @@ void sort_string_array(char ** tab, int nb_of_elements)
   {
     for (int k = i; k > 0 && (my_strcmp(tab[k], tab[k-1]) == -1); k--)
     {
-      swap(tab,k);
+      char * str = tab[k];
+      tab[k] = tab[k-1];
+      tab[k-1] = str;
     }
   }
 

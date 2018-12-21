@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     return -3;
   }
   printf("Tests of strcmp passed, start implementing sort_string_array\n");
-  
+
   char * game_of_thrones_names[15] = {GoT_str1,
     GoT_str2,
     GoT_str3,
